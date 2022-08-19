@@ -1,0 +1,4 @@
+namespace EcsLitDoors
+{
+    struct InputConsumer { }
+}

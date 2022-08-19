@@ -1,28 +1,39 @@
 using Leopotam.EcsLite;
+using Leopotam.EcsLite.UnityEditor;
 using UnityEngine;
 
-public class EcsEntryPoint : MonoBehaviour
+namespace EcsLitDoors
 {
-    private EcsSystems _systems;
+    public class EcsEntryPoint : MonoBehaviour
+    {
+        private EcsSystems _systems;
 
-    void Start () {
-        var world = new EcsWorld ();
-        _systems = new EcsSystems (world);
+        void Start()
+        {
+            var world = new EcsWorld();
+            _systems = new EcsSystems(world);
 
-        _systems
+            _systems
+                .Add(new InitPlayerSystem())
+                .Add(new InputSystem(Camera.main))
+                .Add(new MoveSystem())
+                .Add(new UnityApplyMovableSystem())
 #if UNITY_EDITOR
-            .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem ())
+                .Add(new EcsWorldDebugSystem())
 #endif
-            .Init ();
-    }
+                .Init();
+        }
 
-    void Update () {
-        _systems?.Run ();
-    }
+        void Update()
+        {
+            _systems?.Run();
+        }
 
-    void OnDestroy () {
-        _systems?.Destroy ();
-        _systems?.GetWorld ()?.Destroy ();
-        _systems = null;
+        void OnDestroy()
+        {
+            _systems?.Destroy();
+            _systems?.GetWorld()?.Destroy();
+            _systems = null;
+        }
     }
 }
