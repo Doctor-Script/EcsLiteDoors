@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 551609327}
   - component: {fileID: 551609326}
+  - component: {fileID: 551609328}
   m_Layer: 0
   m_Name: EcsEntryPoint
   m_TagString: Untagged
@@ -183,6 +184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5f4d21fddcb4d759213589416537cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doors:
+    _items:
+    - Color: {r: 0.7830189, g: 0.1071111, b: 0.1071111, a: 1}
+      ButtonPosition: {x: 0, y: 0, z: 0}
+      DoorPosition: {x: 0, y: 0, z: 0}
+  _viewsFactory: {fileID: 551609328}
 --- !u!4 &551609327
 Transform:
   m_ObjectHideFlags: 0
@@ -197,6 +204,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &551609328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551609325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b16210351a64811a276c4ac2d7ce0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonPrefab: {fileID: 8736945995390920794, guid: b57e7023f752b4dd4a90971ed8683dc8, type: 3}
+  _doorPrefab: {fileID: 1604766643605208682, guid: dacb2c60c72ea48ed9e9060c4a78d239, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

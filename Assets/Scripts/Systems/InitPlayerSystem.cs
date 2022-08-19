@@ -9,11 +9,11 @@ namespace EcsLiteDoors
         {
             var world = systems.GetWorld();
             var playerEntity = world.NewEntity();
-            
-            world.GetPool<InputConsumer>().Add(playerEntity);
-            world.GetPool<Movable>().Add(playerEntity).Speed = 3f;
-            world.GetPool<Stance>().Add(playerEntity);
-            world.GetPool<UnityGameObjectComponent>().Add(playerEntity).GameObject = GameObject.Find("Player");
+
+            world.Add<InputConsumer>(playerEntity);
+            world.Add<Movable>(playerEntity).Speed = 3f;
+            world.Add<Stance>(playerEntity);
+            world.Add<UnityGameObjectComponent>(playerEntity).GameObject = GameObject.Find("Player");
         }
     }
 }
