@@ -11,7 +11,8 @@ namespace EcsLitDoors
             var playerEntity = world.NewEntity();
             
             world.GetPool<InputConsumer>().Add(playerEntity);
-            world.GetPool<Movable>().Add(playerEntity);
+            world.GetPool<Movable>().Add(playerEntity).Speed = 3f;
+            world.GetPool<Stance>().Add(playerEntity);
             world.GetPool<UnityGameObjectComponent>().Add(playerEntity).GameObject = GameObject.Find("Player");
         }
     }

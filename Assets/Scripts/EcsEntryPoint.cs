@@ -17,7 +17,7 @@ namespace EcsLitDoors
                 .Add(new InitPlayerSystem())
                 .Add(new InputSystem(Camera.main))
                 .Add(new MoveSystem())
-                .Add(new UnityApplyMovableSystem())
+                .Add(new UnityApplyStanceSystem())
 #if UNITY_EDITOR
                 .Add(new EcsWorldDebugSystem())
 #endif

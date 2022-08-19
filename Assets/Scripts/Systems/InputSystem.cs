@@ -24,7 +24,7 @@ namespace EcsLitDoors
 
                     foreach (var entity in filter)
                     {
-                        ref var moveCommand = ref moveCommandPool.Add(entity);
+                        ref var moveCommand = ref moveCommandPool.GetOrAdd(entity);
                         moveCommand.Target = hit.point;
                     }
                 }
