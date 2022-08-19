@@ -17,9 +17,12 @@ namespace EcsLiteDoors
 
             _systems
                 
-                // Init 
+                // Init Logic 
                 .Add(new InitPlayerSystem())
                 .Add(new InitButtonsAndDoorsSystem())
+                
+                // Init Views for Unity
+                .Add(new InitPlayerViewSystem(_viewsFactory))
                 .Add(new InitButtonAndDoorViewsSystem(_viewsFactory))
                 
                 // Input

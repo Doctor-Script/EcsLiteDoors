@@ -19,7 +19,7 @@ namespace EcsLiteDoors
                 if (Physics.Raycast(ray, out var hit))
                 {
                     var world = systems.GetWorld();
-                    var filter = world.Filter<InputConsumer>().End();
+                    var filter = world.Filter<PlayerInputConsumer>().End();
                     var moveCommandPool = world.GetPool<MoveCommand>();
 
                     foreach (var entity in filter)

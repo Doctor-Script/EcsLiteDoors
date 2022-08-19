@@ -1,0 +1,4 @@
+namespace EcsLiteDoors
+{
+    struct PlayerInputConsumer { }
+}

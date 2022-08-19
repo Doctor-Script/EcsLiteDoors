@@ -10,10 +10,9 @@ namespace EcsLiteDoors
             var world = systems.GetWorld();
             var playerEntity = world.NewEntity();
 
-            world.Add<InputConsumer>(playerEntity);
+            world.Add<PlayerInputConsumer>(playerEntity);
             world.Add<Movable>(playerEntity).Speed = 3f;
             world.Add<Stance>(playerEntity);
-            world.Add<UnityGameObjectComponent>(playerEntity).GameObject = GameObject.Find("Player");
         }
     }
 }
