@@ -15,8 +15,8 @@ namespace EcsLiteDoors
                 ref var stance = ref world.GetPool<Stance>().Get(entity);
                 ref var unityGameObjectComponent = ref world.GetPool<UnityGameObjectComponent>().Get(entity);
 
-                unityGameObjectComponent.Transform.position = stance.Position;
-                unityGameObjectComponent.Transform.rotation = Quaternion.Euler(0f, stance.Angle, 0f);
+                unityGameObjectComponent.Transform.position = stance.Position.ToVector3();
+                unityGameObjectComponent.Transform.rotation = Quaternion.Euler(0f, stance.DirectionDeg, 0f);
             }
         }
     }

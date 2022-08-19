@@ -18,12 +18,12 @@ namespace EcsLiteDoors
                 ref var moveCommand = ref moveCommandPool.Get(entity);
 
                 float distanceForFrame = UnityUtils.DeltaTime * movable.Speed;
-                Vector3 moving = moveCommand.Target - stance.Position;
-                Vector3 direction = moving.normalized;
+                var moving = moveCommand.Target - stance.Position;
+                var direction = moving.normalized;
                 if (moving.magnitude > distanceForFrame)
                 {
                     stance.Position += distanceForFrame * direction;
-                    stance.Angle = DirectionToDeg(direction);
+                    stance.DirectionDeg = DirectionToDeg(direction);
                 } else {
                     moveCommandPool.Del(entity);
                 }
@@ -31,7 +31,7 @@ namespace EcsLiteDoors
         }
 
         private float DirectionToDeg(Vector3 direction) {
-            return Vector2.SignedAngle(new Vector2(direction.x ,direction.z), Vector2.up);
+            return Vector2.SignedAngle(direction, Vector2.up);
         }
     }
 }

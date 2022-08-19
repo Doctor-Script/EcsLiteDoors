@@ -9,14 +9,14 @@ namespace EcsLiteDoors
         [SerializeField] private ButtonView _buttonPrefab;
         [SerializeField] private DoorView _doorPrefab;
 
-        public DoorView InstantiateDoor(Vector3 position, uint color)
+        public DoorView InstantiateDoor(Vector2 position, uint color)
         {
             var doorView = Instantiate(_doorPrefab);
             doorView.Init(position, color);
             return doorView;
         }
         
-        public ButtonView InstantiateButton(Vector3 position, uint color)
+        public ButtonView InstantiateButton(Vector2 position, uint color)
         {
             var buttonView = Instantiate(_buttonPrefab);
             buttonView.Init(position, color);

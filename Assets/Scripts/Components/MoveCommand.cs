@@ -4,6 +4,6 @@ namespace EcsLiteDoors
 {
     struct MoveCommand
     {
-        public Vector3 Target;
+        public Vector2 Target;
     }
 }

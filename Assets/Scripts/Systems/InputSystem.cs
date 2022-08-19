@@ -25,7 +25,7 @@ namespace EcsLiteDoors
                     foreach (var entity in filter)
                     {
                         ref var moveCommand = ref moveCommandPool.GetOrAdd(entity);
-                        moveCommand.Target = hit.point;
+                        moveCommand.Target = hit.point.ToVector2();
                     }
                 }
             }

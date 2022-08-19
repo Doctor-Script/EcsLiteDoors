@@ -4,9 +4,9 @@ namespace EcsLiteDoors
 {
     public abstract class BaseView : MonoBehaviour
     {
-        public void Init(Vector3 position, uint color)
+        public void Init(Vector2 position2, uint color)
         {
-            transform.position = position;
+            transform.position = position2.ToVector3();
             GetComponentInChildren<Renderer>().material.color = ColorFromInt(color);
         }
         
