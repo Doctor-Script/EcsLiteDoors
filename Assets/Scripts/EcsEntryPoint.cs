@@ -2,7 +2,7 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.UnityEditor;
 using UnityEngine;
 
-namespace EcsLitDoors
+namespace EcsLiteDoors
 {
     public class EcsEntryPoint : MonoBehaviour
     {

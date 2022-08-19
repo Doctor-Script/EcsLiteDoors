@@ -1,6 +1,6 @@
 using Leopotam.EcsLite;
 
-namespace EcsLitDoors
+namespace EcsLiteDoors
 {
     public static class EcsUtils
     {

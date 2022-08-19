@@ -1,7 +1,7 @@
 using Leopotam.EcsLite;
 using UnityEngine;
 
-namespace EcsLitDoors
+namespace EcsLiteDoors
 {
     sealed class InputSystem : IEcsRunSystem
     {

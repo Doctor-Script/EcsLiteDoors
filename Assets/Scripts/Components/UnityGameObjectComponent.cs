@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EcsLitDoors
+namespace EcsLiteDoors
 {
     struct UnityGameObjectComponent
     {

@@ -1,4 +1,4 @@
-namespace EcsLitDoors
+namespace EcsLiteDoors
 {
     struct Movable
     {

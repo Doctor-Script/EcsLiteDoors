@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public static class UnityUtils
+namespace EcsLiteDoors
 {
-    public static float DeltaTime = Time.deltaTime;
+    public static class UnityUtils
+    {
+        public static float DeltaTime => Time.deltaTime;
+    }
 }
