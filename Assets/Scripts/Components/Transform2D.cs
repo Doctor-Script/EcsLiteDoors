@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace EcsLiteDoors
 {
-    struct Stance
+    struct Transform2D
     {
         public Vector2 Position;
-        public float DirectionDeg;
+        public float DirectionAngle;
 
         public void SetPosition(float x, float y)
         {

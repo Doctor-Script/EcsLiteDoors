@@ -8,25 +8,25 @@ namespace EcsLiteDoors
         public void Run(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-            var filter = world.Filter<MoveCommand>().Inc<Movable>().Inc<Stance>().End();
+            var filter = world.Filter<MoveCommand>().Inc<Movable>().Inc<Transform2D>().End();
             
             var moveCommandPool = world.GetPool<MoveCommand>();
-            var stancePool = world.GetPool<Stance>();
+            var transformPool = world.GetPool<Transform2D>();
             var movablePool = world.GetPool<Movable>();
 
             foreach (var entity in filter)
             {
-                ref var stance = ref stancePool.Get(entity);
+                ref var transform = ref transformPool.Get(entity);
                 ref var movable = ref movablePool.Get(entity);
                 ref var moveCommand = ref moveCommandPool.Get(entity);
 
-                float distanceForFrame = UnityUtils.DeltaTime * movable.Speed;
-                var moving = moveCommand.Target - stance.Position;
-                var direction = moving.normalized;
-                if (moving.magnitude > distanceForFrame)
+                var moveDistance = UnityUtils.DeltaTime * movable.Speed;
+                var totalMoveVector = moveCommand.Target - transform.Position;
+                var direction = totalMoveVector.normalized;
+                if (totalMoveVector.magnitude > moveDistance)
                 {
-                    stance.Position += distanceForFrame * direction;
-                    stance.DirectionDeg = DirectionToDeg(direction);
+                    transform.Position += moveDistance * direction;
+                    transform.DirectionAngle = DirectionToDeg(direction);
                 } else {
                     moveCommandPool.Del(entity);
                 }

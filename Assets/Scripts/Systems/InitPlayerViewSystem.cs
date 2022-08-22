@@ -15,14 +15,14 @@ namespace EcsLiteDoors
         public void Init(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-            var filter = world.Filter<PlayerInputConsumer>().Inc<Stance>().End();
+            var filter = world.Filter<PlayerInputConsumer>().Inc<Transform2D>().End();
             
-            var stancePool = world.GetPool<Stance>();
+            var transformPool = world.GetPool<Transform2D>();
             var playerGameObjectPool = world.GetPool<ViewWrapper<GameObject>>();
             
             foreach (var entity in filter)
             {
-                var position = stancePool.Get(entity).Position;
+                var position = transformPool.Get(entity).Position;
                 playerGameObjectPool.Add(entity).Value = _viewsFactory.InstantiatePlayer(position);
             }
         }

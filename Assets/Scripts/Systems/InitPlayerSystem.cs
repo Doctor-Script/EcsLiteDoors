@@ -11,7 +11,7 @@ namespace EcsLiteDoors
 
             world.Add<PlayerInputConsumer>(playerEntity);
             world.Add<Movable>(playerEntity).Speed = Config.PLAYER_SPEED;
-            world.Add<Stance>(playerEntity);
+            world.Add<Transform2D>(playerEntity);
             world.Add<CircleCollider>(playerEntity).Radius = 0.5f;
             world.Add<Name>(playerEntity).Text = "Player";
         }
