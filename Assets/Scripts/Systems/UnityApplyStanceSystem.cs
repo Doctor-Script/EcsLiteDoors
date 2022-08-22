@@ -8,15 +8,19 @@ namespace EcsLiteDoors
         public void Run(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-            var filter = world.Filter<UnityGameObjectComponent>().Inc<Stance>().End();
+            var filter = world.Filter<ViewWrapper<GameObject>>().Inc<Stance>().End();
+            
+            var stancePool = world.GetPool<Stance>();
+            var gameObjectPool = world.GetPool<ViewWrapper<GameObject>>();
 
             foreach (var entity in filter)
             {
-                ref var stance = ref world.GetPool<Stance>().Get(entity);
-                ref var unityGameObjectComponent = ref world.GetPool<UnityGameObjectComponent>().Get(entity);
+                ref var stance = ref stancePool.Get(entity);
+                ref var gameObject = ref gameObjectPool.Get(entity);
 
-                unityGameObjectComponent.Transform.position = stance.Position.ToVector3();
-                unityGameObjectComponent.Transform.rotation = Quaternion.Euler(0f, stance.DirectionDeg, 0f);
+                var unityTransform = gameObject.Value.transform;
+                unityTransform.position = stance.Position.ToVector3();
+                unityTransform.rotation = Quaternion.Euler(0f, stance.DirectionDeg, 0f);
             }
         }
     }

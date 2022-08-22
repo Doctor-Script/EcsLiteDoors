@@ -8,8 +8,9 @@ namespace EcsLiteDoors
         {
             var world = systems.GetWorld();
             var filter = world.Filter<Door>().End();
+            
             var doorsPool = world.GetPool<Door>();
-            var doorViewPool = world.GetPool<UnityComponent<DoorView>>();
+            var doorViewPool = world.GetPool<ViewWrapper<DoorView>>();
 
             foreach (var entity in filter)
             {

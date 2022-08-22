@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace EcsLiteDoors
 {
-    struct UnityComponent<T> where T : Component
+    struct ViewWrapper<T> where T : Object
     {
         public T Value;
     }

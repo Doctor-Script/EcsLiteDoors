@@ -1,4 +1,5 @@
 using Leopotam.EcsLite;
+using UnityEngine;
 
 namespace EcsLiteDoors
 {
@@ -14,12 +15,15 @@ namespace EcsLiteDoors
         public void Init(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-            
             var filter = world.Filter<PlayerInputConsumer>().Inc<Stance>().End();
+            
+            var stancePool = world.GetPool<Stance>();
+            var playerGameObjectPool = world.GetPool<ViewWrapper<GameObject>>();
+            
             foreach (var entity in filter)
             {
-                var position = world.Get<Stance>(entity).Position;
-                world.Add<UnityGameObjectComponent>(entity).GameObject = _viewsFactory.InstantiatePlayer(position);
+                var position = stancePool.Get(entity).Position;
+                playerGameObjectPool.Add(entity).Value = _viewsFactory.InstantiatePlayer(position);
             }
         }
     }
