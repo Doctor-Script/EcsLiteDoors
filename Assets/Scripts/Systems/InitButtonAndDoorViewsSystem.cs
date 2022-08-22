@@ -6,8 +6,7 @@ namespace EcsLiteDoors
     {
         private readonly ViewsFactory _viewsFactory;
 
-        public InitButtonAndDoorViewsSystem(ViewsFactory viewsFactory)
-        {
+        public InitButtonAndDoorViewsSystem(ViewsFactory viewsFactory) {
             _viewsFactory = viewsFactory;
         }
 
@@ -26,7 +25,7 @@ namespace EcsLiteDoors
                 var position = world.Get<Stance>(doorEntity).Position;
                 var color = world.Get<Colorized>(doorEntity).Color;
                 var doorView = _viewsFactory.InstantiateDoor(position, color);
-                world.Add<UnityGameObjectComponent>(doorEntity).GameObject = doorView.gameObject;
+                world.Add<UnityComponent<DoorView>>(doorEntity).Value = doorView;
             }
         }
 
@@ -37,8 +36,7 @@ namespace EcsLiteDoors
             {
                 var position = world.Get<Stance>(buttonEntity).Position;
                 var color = world.Get<Colorized>(buttonEntity).Color;
-                var buttonView = _viewsFactory.InstantiateButton(position, color);
-                world.Add<UnityGameObjectComponent>(buttonEntity).GameObject = buttonView.gameObject;
+                _viewsFactory.InstantiateButton(position, color);
             }
         }
     }

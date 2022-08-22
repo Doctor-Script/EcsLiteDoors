@@ -1,4 +1,5 @@
 using Leopotam.EcsLite;
+using Leopotam.EcsLite.ExtendedSystems;
 using Leopotam.EcsLite.UnityEditor;
 using UnityEngine;
 
@@ -25,17 +26,22 @@ namespace EcsLiteDoors
                 .Add(new InitPlayerViewSystem(_viewsFactory))
                 .Add(new InitButtonAndDoorViewsSystem(_viewsFactory))
                 
-                // Input
+                // Input (Unity)
                 .Add(new InputSystem(Camera.main))
                 
                 // Update Logic
                 .Add(new MoveSystem())
-                
+                .Add(new CircleCollisionsSystem())
+                .Add(new OpenDoorSystem())
+
                 // Apply To Unity
                 .Add(new UnityApplyStanceSystem())
+                .Add(new UnityApplyDoorSystem())
 #if UNITY_EDITOR
                 .Add(new EcsWorldDebugSystem())
 #endif
+                .DelHere<Collision>()
+                
                 .Init();
         }
 

@@ -17,12 +17,14 @@ namespace EcsLiteDoors
             world.Add<Stance>(doorEntity).SetPosition(doorX, doorY);
             world.Add<Door>(doorEntity).ClosedPercent = 1f;
             world.Add<Colorized>(doorEntity).Color = color;
+            world.Add<Name>(doorEntity).Text = $"Door 0x{color:X6}";
             
             var buttonEntity = world.NewEntity();
             world.Add<Stance>(buttonEntity).SetPosition(buttonX, buttonY);
             world.Add<CircleCollider>(buttonEntity).Radius = 0.5f;
             world.Add<Button>(buttonEntity).PackedDoorEntity = world.PackEntity(doorEntity);
             world.Add<Colorized>(buttonEntity).Color = color;
+            world.Add<Name>(buttonEntity).Text = $"Button 0x{color:X6}";
         }
     }
 }
