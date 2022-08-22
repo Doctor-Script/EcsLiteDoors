@@ -39,7 +39,7 @@ namespace EcsLiteDoors
                 if (doorsPool.Has(doorEntity))
                 {
                     ref var door = ref doorsPool.Get(doorEntity);
-                    door.ClosedPercent -= 0.2f * Time.deltaTime;
+                    door.ClosedPercent -= Config.DOOR_SPEED * UnityUtils.DeltaTime;
                     if (door.ClosedPercent < 0f) {
                         door.ClosedPercent = 0f;
                     }
