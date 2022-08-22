@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace EcsLiteDoors
 {
-    public abstract class BaseView : MonoBehaviour
+    public class ColorizedView : MonoBehaviour
     {
         public void Init(Vector2 position2, uint color)
         {

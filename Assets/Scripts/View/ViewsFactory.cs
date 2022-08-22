@@ -5,7 +5,7 @@ namespace EcsLiteDoors
     public class ViewsFactory : MonoBehaviour
     {
         [SerializeField] private GameObject _playerPrefab;
-        [SerializeField] private ButtonView _buttonPrefab;
+        [SerializeField] private ColorizedView _buttonPrefab;
         [SerializeField] private DoorView _doorPrefab;
 
         public DoorView InstantiateDoor(Vector2 position, uint color)
@@ -15,7 +15,7 @@ namespace EcsLiteDoors
             return doorView;
         }
         
-        public ButtonView InstantiateButton(Vector2 position, uint color)
+        public ColorizedView InstantiateButton(Vector2 position, uint color)
         {
             var buttonView = Instantiate(_buttonPrefab);
             buttonView.Init(position, color);

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace EcsLiteDoors
 {
-    public class DoorView : BaseView
+    public class DoorView : ColorizedView
     {
         [SerializeField] private Transform viewTransform;
         

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8736945995390920793}
-  - component: {fileID: 8736945995390920794}
+  - component: {fileID: 3486519308878861573}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8736945995390920794
+--- !u!114 &3486519308878861573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8736945995390920792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd70398a4eff9495192b17d8f4376af5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ccc18a3de0f7421f988813b91c9d19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8736945996381708911
