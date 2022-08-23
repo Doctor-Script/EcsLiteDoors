@@ -35,7 +35,7 @@ namespace EcsLiteDoors
                 .Add(new OpenDoorSystem())
 
                 // Apply To Unity
-                .Add(new UnityApplyStanceSystem())
+                .Add(new UnityApplyTransformSystem())
                 .Add(new UnityApplyDoorSystem())
 #if UNITY_EDITOR
                 .Add(new EcsWorldDebugSystem())

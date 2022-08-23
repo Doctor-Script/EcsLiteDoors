@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EcsLiteDoors
 {
-    sealed class UnityApplyStanceSystem : IEcsRunSystem
+    sealed class UnityApplyTransformSystem : IEcsRunSystem
     {
         public void Run(IEcsSystems systems)
         {
