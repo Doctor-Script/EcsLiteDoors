@@ -9,8 +9,8 @@ namespace EcsLiteDoors
             var world = systems.GetWorld();
             
             // Probably we would have some config on the real server.
-            AddDoor(world, 5f, 5f, 7f, 7f, 0xFF0000);
-            AddDoor(world, -5f, 5f, -7f, 7f, 0x00FF00);
+            AddDoor(world, 7f, 7f, 5f, 5f, 0xFF0000);
+            AddDoor(world, -7f, 7f, -5f, 5f, 0x00FF00);
         }
 
         private void AddDoor(EcsWorld world, float doorX, float doorY, float buttonX, float buttonY, uint color)
