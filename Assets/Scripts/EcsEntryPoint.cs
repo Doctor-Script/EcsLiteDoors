@@ -2,12 +2,13 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.ExtendedSystems;
 using Leopotam.EcsLite.UnityEditor;
 using UnityEngine;
+using Zenject;
 
 namespace EcsLiteDoors
 {
     public class EcsEntryPoint : MonoBehaviour
     {
-        [SerializeField] private ViewsFactory _viewsFactory;
+        [Inject] private DiContainer _diContainer;
         
         private EcsSystems _systems;
 
@@ -23,9 +24,9 @@ namespace EcsLiteDoors
                 .Add(new InitButtonsAndDoorsSystem())
                 
                 // Init Views for Unity
-                .Add(new InitPlayerViewSystem(_viewsFactory))
-                .Add(new InitButtonAndDoorViewsSystem(_viewsFactory))
-                
+                .Add(_diContainer.Instantiate<InitPlayerViewSystem>())
+                .Add(_diContainer.Instantiate<InitButtonAndDoorViewsSystem>())
+
                 // Input (Unity)
                 .Add(new InputSystem(Camera.main))
                 
